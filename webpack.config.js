@@ -260,7 +260,9 @@ module.exports = {
     "string_decoder": "require('string_decoder')",
     "url": "require('url')",
     "util": "require('util')",
-    "zlib": "require('zlib')"
+    "zlib": "require('zlib')",
+    "reflect-metadata": "require('reflect-metadata')",
+    "typeorm": "require('typeorm')"
   },
   "resolve": {
     "extensions": [

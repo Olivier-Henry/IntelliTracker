@@ -1,19 +1,47 @@
 import { app, BrowserWindow, screen } from 'electron';
 import * as path from 'path';
+import Config from './Config';
+import "reflect-metadata";
+import { createConnection, Connection } from "typeorm";
 
 let win, serve;
 const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve');
+
+//db connection
 
 if (serve) {
   require('electron-reload')(__dirname, {
   });
 }
 
-function createWindow() {
+async function connect() {
+  const connection: Connection = await createConnection({
+    "type": "sqlite",
+    "database": path.join(app.getPath('userData'), 'data.db'),
+    "synchronize": false,
+    "logging": "all",
+    "entities": [
+      __dirname + "/src/entity/*.js"
+    ],
+    "migrations": [
+      "migration/**/*.ts"
+    ],
+    "subscribers": [
+      "subscriber/**/*.ts"
+    ],
+  });
+}
 
+
+function createWindow() {
+  connect().then(result => {
+    const config = new Config();
+  });
   const electronScreen = screen;
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
+
+
 
   // Create the browser window.
   win = new BrowserWindow({

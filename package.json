@@ -22,7 +22,7 @@
     "start": "npm-run-all --parallel webpack:watch electron:serve",
     "webpack:watch": "webpack --watch",
     "start:web": "webpack-dev-server --content-base . --port 4200 --inline",
-    "build:electron:main": "tsc main.ts --outDir dist && copyfiles package.json dist && cd dist && npm install --prod && cd ..",
+    "build:electron:main": "tsc main.ts --experimentalDecorators --outDir dist && copyfiles package.json dist && cd dist && npm install --prod && cd ..",
     "build": "webpack --display-error-details && npm run build:electron:main",
     "build:prod": "cross-env NODE_ENV=production npm run build",
     "electron:serve": "npm run build:electron:main && electron ./dist --serve",
@@ -34,12 +34,15 @@
     "electron:mac": "npm run build:prod && npx electron-builder build --mac",
     "test": "karma start ./karma.conf.js",
     "pree2e": "webdriver-manager update --standalone false --gecko false --quiet && npm run build",
-    "e2e": "protractor ./protractor.conf.js"
+    "e2e": "protractor ./protractor.conf.js",
+    "rebuild": "electron-rebuild -f -w sqlite3"
   },
   "dependencies": {
+    "@angular-mdc/web": "^0.6.6",
     "@angular/common": "5.0.3",
     "@angular/compiler": "5.0.3",
     "@angular/core": "5.0.3",
+    "@angular/flex-layout": "git+https://github.com/angular/flex-layout-builds.git",
     "@angular/forms": "5.0.3",
     "@angular/http": "5.0.3",
     "@angular/platform-browser": "5.0.3",
@@ -49,7 +52,11 @@
     "@ngx-translate/http-loader": "2.0.0",
     "core-js": "2.4.1",
     "enhanced-resolve": "3.3.0",
+    "ini": "^1.3.5",
+    "reflect-metadata": "^0.1.12",
     "rxjs": "5.5.2",
+    "sqlite3": "^3.1.13",
+    "typeorm": "^0.1.11",
     "zone.js": "0.8.17"
   },
   "devDependencies": {
@@ -70,6 +77,7 @@
     "cssnano": "3.10.0",
     "electron": "1.7.8",
     "electron-builder": "19.45.4",
+    "electron-rebuild": "^1.7.3",
     "electron-reload": "1.2.1",
     "exports-loader": "0.6.4",
     "file-loader": "1.1.5",
