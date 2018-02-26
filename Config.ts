@@ -6,14 +6,14 @@ import * as path from 'path';
 import { getConnection } from 'typeorm';
 import Room from './src/entity/Room';
 import User from './src/entity/User';
-
+import AppPreferences from './src/entity/AppPreferences';
 
 export default class Config {
 
     os: string;
     version: number;
     rooms: { [k: string]: string } = {};
-    assistant: boolean = false;
+    assistant: boolean = true;
     // initPath: string;
 
     constructor() {
@@ -30,10 +30,40 @@ export default class Config {
         // this.createIniFile();
         this.saveRoomsAndHeroes();
         //}
-
+        this.getPreferences()
+            .then(result => {
+                console.log('getPreferences', result);
+            })
+            .catch(error => {
+                console.error(error);
+            });
 
 
         // return ini.parse(fs.readFileSync(this.initPath, 'utf-8'));
+    }
+
+    private async getPreferences() {
+        const preferencesRepository = getConnection().getRepository(AppPreferences);
+        const _this = this;
+        return await preferencesRepository.findOne({ firstInstall: false })
+            .then(result => {
+                if (result instanceof AppPreferences) {
+                    return result.firstInstall;
+                }
+
+                let prefs = new AppPreferences();
+                prefs.firstInstall = _this.assistant;
+                preferencesRepository.save(prefs).then(result => {
+                    //do nothing
+                }).catch(error => {
+                    console.warn(error);
+                })
+
+                return prefs.firstInstall;
+
+            }).catch(error => {
+                console.error(error);
+            });
     }
 
     generateDefaultRoomPaths() {
