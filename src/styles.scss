@@ -2,8 +2,9 @@
  html, body {
   margin: 0;
   padding: 0;
-  background-color: #131313;
+  /* background-color: rgb(48, 48,48); */
   height: 100%;
+  /* color: white; */
 } 
 
 .sk-cube-grid {
@@ -68,8 +69,24 @@
   } 
 }
 
-$mdc-theme-primary: #1f1f1f; // change primary color example
-$mdc-theme-secondary: #1a1919; // change secondary color example
-$mdc-theme-background: #131313;
+.pokerstars-logo{
+  background-image: url('assets/images/PokerStars.png');
+  background-size: cover;
+  border-radius:0!important;
+}
+.winamax-logo{
+  background-image: url('assets/images/Winamax.png');
+  background-size: cover;
+  border-radius:0!important;
+}
 
-@import "~@angular-mdc/theme/material";
+.container{
+  padding: 10px;
+  height: 100%;
+}
+
+.left-container{
+  height: calc(100% - 64px);
+}
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+

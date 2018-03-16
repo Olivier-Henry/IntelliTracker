@@ -4,7 +4,8 @@
           "TITLE": "App works !"
       },
       "firstInstall": {
-        "title": "First launch assistant !"
+        "title": "Installation wizard !",
+        "welcome": "Welcome"
       }
   }
 }

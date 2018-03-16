@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RoomsService } from 'app/providers/rooms.service';
+import Room from '../../../entity/Room';
 
 @Component({
   selector: 'app-first-install',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FirstInstallComponent implements OnInit {
 
-  constructor() { }
+  constructor(private roomService: RoomsService) {}
 
   ngOnInit() {
     console.log('init');

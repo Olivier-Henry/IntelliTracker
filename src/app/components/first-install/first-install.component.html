@@ -1,12 +1,60 @@
-<header class="mdc-toolbar">
-  <div class="mdc-toolbar__row">
-    <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
-      <!--a href="#" class="material-icons mdc-toolbar__menu-icon">menu</a-->
-      <span class="mdc-toolbar__title">{{'PAGES.firstInstall.title' | translate}}</span>
-    </section>
+<mat-toolbar color="primary" class="mat-elevation-z2">
+  <mat-toolbar-row>
+    <span>{{ 'PAGES.firstInstall.title' | translate}}</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div fxLayout class="left-container">
+  <div fxLayout="column" fxFlex="20%" fxLayoutAlign="stretch">
+    <mat-card fxFlex>
+      <mat-card-content>
+        <p>{{'PAGES.firstInstall.welcome' | translate}},</p>
+        <p>We have found 2 poker rooms currently installed on your computer.</p>
+        <p>For each room and poker account, you can setup the current bankroll amount.</p>
+        <p>We can calculate the initial amount from the history, uncheck this option if you do not want.</p>
+      </mat-card-content>
+    </mat-card>
   </div>
-</header>
-<div fxLayout="row">
-  <div fxFlex="1 1 calc(15em + 20px)">test</div>
-  <div fxFlex="3 3">test</div>
+
+  <div fxLayout="column" fxFlex class="container">
+    <div fxLayout fxLayoutGap="10px">
+      <mat-card fxFlex="50%" *ngFor="let room of roomService.rooms">
+        <mat-card-header>
+          <div mat-card-avatar class="pokerstars-logo"></div>
+          <mat-card-title>Pokerstars</mat-card-title>
+          <mat-card-subtitle>
+            <mat-chip-list>
+              <mat-chip>2 heroes</mat-chip>
+            </mat-chip-list>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            We found the pokerstars application on your computer.
+          </p>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-icon-button>
+            <mat-icon>euro_symbol</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      <mat-card fxFlex>
+        <mat-card-header>
+          <div mat-card-avatar class="winamax-logo"></div>
+          <mat-card-title>Winamax</mat-card-title>
+          <mat-card-subtitle>2 heroes</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            We found the Winamax application on your computer.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-icon-button>
+            <mat-icon>euro_symbol</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
 </div>
