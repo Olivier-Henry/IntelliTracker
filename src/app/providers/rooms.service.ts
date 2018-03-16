@@ -10,10 +10,10 @@ export class RoomsService {
 
   constructor() {
     this.repository = getConnection().getRepository(Room);
-    this.find();
+    this.get();
   }
 
-  private find = () => {
+  private get = () => {
      this.repository.find()
       .then(response => {
         if(response.length){

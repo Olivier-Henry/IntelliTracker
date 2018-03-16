@@ -16,45 +16,47 @@
   </div>
 
   <div fxLayout="column" fxFlex class="container">
-    <div fxLayout fxLayoutGap="10px">
-      <mat-card fxFlex="50%" *ngFor="let room of roomService.rooms">
-        <mat-card-header>
-          <div mat-card-avatar class="pokerstars-logo"></div>
-          <mat-card-title>Pokerstars</mat-card-title>
-          <mat-card-subtitle>
-            <mat-chip-list>
-              <mat-chip>2 heroes</mat-chip>
-            </mat-chip-list>
-          </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>
-            We found the pokerstars application on your computer.
-          </p>
-        </mat-card-content>
-        <mat-card-actions align="end">
-          <button mat-icon-button>
-            <mat-icon>euro_symbol</mat-icon>
-          </button>
-        </mat-card-actions>
-      </mat-card>
-      <mat-card fxFlex>
-        <mat-card-header>
-          <div mat-card-avatar class="winamax-logo"></div>
-          <mat-card-title>Winamax</mat-card-title>
-          <mat-card-subtitle>2 heroes</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>
-            We found the Winamax application on your computer.
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-icon-button>
-            <mat-icon>euro_symbol</mat-icon>
-          </button>
-        </mat-card-actions>
-      </mat-card>
+    <div fxLayout *ngFor="let index of roomService.rooms; let i=index; let even = even">
+      <div *ngIf="even" fxLayout fxLayoutGap="10px">
+        <mat-card fxFlex>
+          <mat-card-header>
+            <div mat-card-avatar class="pokerstars-logo"></div>
+            <mat-card-title>Pokerstars</mat-card-title>
+            <mat-card-subtitle>
+              <mat-chip-list>
+                <mat-chip>2 heroes</mat-chip>
+              </mat-chip-list>
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              We found the pokerstars application on your computer.
+            </p>
+          </mat-card-content>
+          <mat-card-actions align="end">
+            <button mat-icon-button>
+              <mat-icon>euro_symbol</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+        <mat-card fxFlex>
+          <mat-card-header>
+            <div mat-card-avatar class="winamax-logo"></div>
+            <mat-card-title>Winamax</mat-card-title>
+            <mat-card-subtitle>2 heroes</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              We found the Winamax application on your computer.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-icon-button>
+              <mat-icon>euro_symbol</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
     </div>
   </div>
 </div>
