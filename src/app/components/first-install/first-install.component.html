@@ -17,7 +17,7 @@
 
   <div fxLayout="column" fxFlex class="container">
     <div fxLayout *ngFor="let index of roomService.rooms; let i=index; let even = even">
-      <div *ngIf="even" fxLayout fxLayoutGap="10px">
+      <div *ngIf="even" fxLayout fxLayoutGap="10px" fxFlex>
         <mat-card fxFlex>
           <mat-card-header>
             <div mat-card-avatar class="pokerstars-logo"></div>
