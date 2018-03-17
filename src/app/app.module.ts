@@ -27,6 +27,8 @@ import { PreferencesService } from './providers/preferences.service';
 import { RoomsService } from './providers/rooms.service';
 
 import DatabaseConnection from '../utils/DatabaseConnection';
+import { InitHeroDialogComponent } from './components/init-hero-dialog/init-hero-dialog.component';
+import { UsersService } from './providers/users.service';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -41,8 +43,11 @@ export function DatabaseConnectionFactory(databaseConnection: DatabaseConnection
   declarations: [
     AppComponent,
     FirstInstallComponent,
-    HomeComponent
-  
+    HomeComponent,
+    InitHeroDialogComponent
+  ],
+  entryComponents: [
+    InitHeroDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +75,8 @@ export function DatabaseConnectionFactory(databaseConnection: DatabaseConnection
     },
     ElectronService, 
     PreferencesService,
-    RoomsService
+    RoomsService,
+    UsersService
   ],
   bootstrap: [AppComponent]
 })

@@ -6,7 +6,10 @@ import {
   MatGridListModule, 
   MatCardModule, 
   MatIconModule,
-  MatChipsModule 
+  MatChipsModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatInputModule,
 } from '@angular/material';
 
 @NgModule({
@@ -16,7 +19,10 @@ import {
     MatGridListModule,
     MatCardModule,
     MatIconModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
     MatButtonModule,
@@ -24,7 +30,10 @@ import {
     MatGridListModule,
     MatCardModule,
     MatIconModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
 })
 export class AppMaterialModule { }
