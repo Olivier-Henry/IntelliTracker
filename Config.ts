@@ -141,6 +141,7 @@ export default class Config {
                         let user = new User();
                         user.name = file;
                         user.room = room;
+                        user.isHero = true;
 
                         userRepository.findOne({ name: user.name, roomId: room.id }).then(result => {
                             console.log(result);

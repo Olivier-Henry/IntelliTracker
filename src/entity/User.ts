@@ -10,6 +10,9 @@ export default class User{
     @Column({type: 'text'})
     name: string;
 
+    @Column({type: 'boolean'})
+    isHero: boolean;
+
     @Column({type: 'int'})
     roomId: number;
 

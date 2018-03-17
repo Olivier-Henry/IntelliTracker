@@ -1,4 +1,4 @@
-import {Entity, Column, PrimaryGeneratedColumn, OneToMany} from "typeorm";
+import {Entity, Column, PrimaryGeneratedColumn, OneToMany, RelationCount} from "typeorm";
 import User from './User';
 
 @Entity()
@@ -15,4 +15,7 @@ export default class Room{
 
     @OneToMany(type => User, user => user.room)
     users: User[];
+
+    @RelationCount((room: Room) => room.users, 'user', qb => qb.andWhere('user.isHero = :isHero', {isHero: true}))
+    heroesCount: number;
 }

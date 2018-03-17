@@ -1,6 +1,6 @@
 import 'zone.js/dist/zone-mix';
 import 'reflect-metadata';
-import 'polyfills';
+import '../polyfills';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -23,8 +23,8 @@ import { ElectronService } from './providers/electron.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { FirstInstallComponent } from './components/first-install/first-install.component';
-import { PreferencesService } from 'app/providers/preferences.service';
-import { RoomsService } from 'app/providers/rooms.service';
+import { PreferencesService } from './providers/preferences.service';
+import { RoomsService } from './providers/rooms.service';
 
 import DatabaseConnection from '../utils/DatabaseConnection';
 

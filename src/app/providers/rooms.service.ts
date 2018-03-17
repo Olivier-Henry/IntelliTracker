@@ -7,6 +7,7 @@ export class RoomsService {
 
   private repository: Repository<Room>;
   public rooms: Array<Room>;
+  private knowRooms:Array<string> = ['winamax', 'pokerstars'];
 
   constructor() {
     this.repository = getConnection().getRepository(Room);
@@ -18,6 +19,7 @@ export class RoomsService {
       .then(response => {
         if(response.length){
           this.rooms = response;
+          console.log(response);
         }
       });
   }

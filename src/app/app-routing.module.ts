@@ -3,7 +3,7 @@ import { FirstInstallComponent } from './components/first-install/first-install.
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { PreferencesService } from 'app/providers/preferences.service';
+import { PreferencesService } from './providers/preferences.service';
 
 const routes: Routes = [
      {
