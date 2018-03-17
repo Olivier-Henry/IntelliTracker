@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import User from '../../../entity/User';
 
 @Component({
   selector: 'app-init-hero-dialog',
@@ -8,13 +9,18 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class InitHeroDialogComponent implements OnInit {
 
+  private heroes: User
+
   constructor(public dialogRef: MatDialogRef<InitHeroDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data:any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
+    this.data.heroes.then((result) => {
+      this.heroes = result;
+    });
   }
 
-  onNoClick(){
+  onNoClick() {
     this.dialogRef.close();
   }
 

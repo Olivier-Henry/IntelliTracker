@@ -34,7 +34,7 @@
             </p>
           </mat-card-content>
           <mat-card-actions align="end">
-            <button mat-icon-button (click)="openDialog()">
+            <button mat-icon-button (click)="openDialog(roomService.rooms[i])">
               <mat-icon>euro_symbol</mat-icon>
             </button>
           </mat-card-actions>
@@ -55,7 +55,7 @@
             </p>
           </mat-card-content>
           <mat-card-actions align="end">
-            <button mat-icon-button (click)="openDialog()">
+            <button mat-icon-button (click)="openDialog(roomService.rooms[i + 1])">
               <mat-icon>euro_symbol</mat-icon>
             </button>
           </mat-card-actions>

@@ -3,6 +3,7 @@ import { RoomsService } from '../../providers/rooms.service';
 import Room from '../../../entity/Room';
 import { MatDialog } from '@angular/material';
 import { InitHeroDialogComponent } from '../init-hero-dialog/init-hero-dialog.component';
+import { UsersService } from '../../providers/users.service';
 
 @Component({
   selector: 'app-first-install',
@@ -11,10 +12,14 @@ import { InitHeroDialogComponent } from '../init-hero-dialog/init-hero-dialog.co
 })
 export class FirstInstallComponent implements OnInit {
 
-  constructor(private roomService: RoomsService, public dialog:MatDialog) {}
+  constructor(private roomService: RoomsService, 
+                public dialog:MatDialog, private userService:UsersService) {}
 
-  openDialog(): void{
+  openDialog(room: Room): void{
       let dialogRef = this.dialog.open(InitHeroDialogComponent,{
+        data: {
+          heroes: this.userService.getHeroesByRoom(room) 
+        }
       });
   }
 
