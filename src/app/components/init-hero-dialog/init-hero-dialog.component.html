@@ -1,19 +1,19 @@
 <h1 mat-dialog-title>Configure heroes current bankroll amount</h1>
 <div mat-dialog-content class="disable-overflow">
   
-    <div fxLayout *ngFor="let hero of heroes" fxLayoutGap="5px">
-      <mat-form-field fxFlex>
-        
-        <input matInput [(ngModel)]="data.animal" type="number" placeholder="bankroll for {{hero.name}}">
+    <div fxLayout *ngFor="let hero of heroes; let i = index;" fxLayoutGap="5px">
+      <mat-form-field fxFlex *ngIf="bankrolls[i]">
+        <input matInput [ngModel]="bankrolls[i].amount | number:'1.2-2'" (ngModelChange)="bankrolls[i].amount=$event"
+               (change)="controlDecimals($event)" type="number" placeholder="bankroll for {{hero.name}}">
         <mat-icon matSuffix>euro_symbol</mat-icon>
       </mat-form-field>
     </div>
-    <div fxLayout>
+    <!--div fxLayout>
       <mat-checkbox>calculate initial bankroll from history</mat-checkbox>
-    </div>
+    </div-->
 
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">{{'cancel' | translate}}</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>{{'save' | translate}}</button>
+  <button mat-button [mat-dialog-close]="bankrolls" cdkFocusInitial>{{'save' | translate}}</button>
 </div>

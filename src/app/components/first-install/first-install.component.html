@@ -8,9 +8,9 @@
     <mat-card fxFlex>
       <mat-card-content>
         <p>{{'PAGES.firstInstall.welcome' | translate}},</p>
-        <p>We have found 2 poker rooms currently installed on your computer.</p>
+        <p *ngIf="roomService.rooms">We have found {{roomService.rooms.length}} poker rooms currently installed on your computer.</p>
         <p>For each room and poker account, you can setup the current bankroll amount.</p>
-        <p>We can calculate the initial amount from the history, uncheck this option if you do not want.</p>
+        <!--p>We can calculate the initial amount from the history, uncheck this option if you do not want.</p-->
       </mat-card-content>
     </mat-card>
   </div>

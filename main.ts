@@ -19,7 +19,7 @@ async function connect() {
   const connection: Connection = await createConnection({
     "type": "sqlite",
     "database": path.join(app.getPath('userData'), 'data.db'),
-    "synchronize": false,
+    "synchronize": true,
     "logging": "all",
     "entities": [
       __dirname + "/src/entity/*.js"

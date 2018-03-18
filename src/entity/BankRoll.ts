@@ -1,16 +1,20 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import User from "./User";
 
 
 @Entity()
-export default class BankRoll{
+export default class Bankroll{
 
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({type: 'double'})
+    @Column({type: 'int'})
     amount: number;
 
     @Column({type: 'datetime'})
     date: Date;
+
+    @ManyToOne(type => User, user => user.bankrolls)
+    user:User;
 
 }

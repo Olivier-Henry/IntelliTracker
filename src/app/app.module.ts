@@ -29,6 +29,8 @@ import { RoomsService } from './providers/rooms.service';
 import DatabaseConnection from '../utils/DatabaseConnection';
 import { InitHeroDialogComponent } from './components/init-hero-dialog/init-hero-dialog.component';
 import { UsersService } from './providers/users.service';
+import { BankrollService } from './providers/bankroll.service';
+import { CurrencyMaskModule } from "ng2-currency-mask";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -63,7 +65,8 @@ export function DatabaseConnectionFactory(databaseConnection: DatabaseConnection
       }
     }),
     AppRoutingModule,
-    AppMaterialModule
+    AppMaterialModule,
+    CurrencyMaskModule
   ],
   providers: [
     DatabaseConnection,
@@ -76,7 +79,8 @@ export function DatabaseConnectionFactory(databaseConnection: DatabaseConnection
     ElectronService, 
     PreferencesService,
     RoomsService,
-    UsersService
+    UsersService,
+    BankrollService
   ],
   bootstrap: [AppComponent]
 })

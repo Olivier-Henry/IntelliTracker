@@ -1,5 +1,6 @@
-import {Entity, Column, PrimaryGeneratedColumn, ManyToOne} from "typeorm";
+import {Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany} from "typeorm";
 import Room from './Room';
+import Bankroll from "./Bankroll";
 
 @Entity()
 export default class User{
@@ -18,4 +19,8 @@ export default class User{
 
     @ManyToOne(type => Room, room => room.users)
     room:Room;
+
+    @OneToMany(type => Bankroll, bankroll => bankroll.user)
+    bankrolls: Bankroll[];
+
 }

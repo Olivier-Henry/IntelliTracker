@@ -5,6 +5,7 @@ import * as path from 'path';
 import AppPreferences from '../entity/AppPreferences'
 import Room from '../entity/Room'
 import User from '../entity/User'
+import Bankroll from '../entity/Bankroll'
 import { Promise } from "q";
 import { Injectable } from "@angular/core";
 
@@ -27,7 +28,8 @@ export default class DatabaseConnection {
                 "entities": [
                     AppPreferences,
                     User,
-                    Room
+                    Room,
+                    Bankroll
                 ],
                 "migrations": [
                     "migration/**/*.ts"
