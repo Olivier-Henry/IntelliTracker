@@ -42,10 +42,6 @@ export class InitHeroDialogComponent implements OnInit {
     });
   }
 
-  controlDecimals($event){
-    $event.target.value = parseFloat($event.target.value).toFixed(2);
-  }
-
   onNoClick() {
     this.dialogRef.close();
   }
