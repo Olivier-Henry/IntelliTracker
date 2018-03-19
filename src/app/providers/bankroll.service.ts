@@ -19,9 +19,11 @@ export class BankrollService {
       order: { date: "DESC" }
     });
 
-    b.amount = this.toUnit(b.amount);
-    
-    return b;
+    if (b instanceof Bankroll) {
+      b.amount = this.toUnit(b.amount);
+
+      return b;
+    }
   }
 
   async save(bankrolls: Array<Bankroll>) {
