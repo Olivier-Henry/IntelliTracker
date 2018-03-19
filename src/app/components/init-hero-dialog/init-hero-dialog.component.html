@@ -3,7 +3,7 @@
   
     <div fxLayout *ngFor="let hero of heroes; let i = index;" fxLayoutGap="5px">
       <mat-form-field fxFlex *ngIf="bankrolls[i]">
-        <input matInput ([ngModel])="bankrolls[i].amount" type="number" placeholder="bankroll for {{hero.name}}">
+        <input matInput [(ngModel)]="bankrolls[i].amount" type="number" placeholder="bankroll for {{hero.name}}">
         <mat-icon matSuffix>euro_symbol</mat-icon>
       </mat-form-field>
     </div>

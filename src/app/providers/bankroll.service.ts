@@ -30,6 +30,7 @@ export class BankrollService {
 
     for (let b of bankrolls) {
       b.amount = this.toCentUnit(b.amount);
+      console.log(b.amount);
     }
 
     await this.repository.save(bankrolls);
