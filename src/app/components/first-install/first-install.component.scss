@@ -1,0 +1,11 @@
+
+.mat-card.bottom-buttons {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+  }
+  
+  .mat-card.bottom-buttons .mat-card-content {
+    display: flex;
+    flex: 1;
+  }

@@ -7,7 +7,7 @@ export class RoomsService {
 
   private repository: Repository<Room>;
   public rooms: Array<Room>;
-  private knowRooms:Array<string> = ['winamax', 'pokerstars'];
+  public knowRooms:Array<string> = ['winamax', 'pokerstars'];
 
   constructor() {
     this.repository = getConnection().getRepository(Room);
@@ -19,7 +19,14 @@ export class RoomsService {
       .then(response => {
         if(response.length){
           this.rooms = response;
-          console.log(response);
+          
+          for(let room of this.rooms){
+            let i = this.knowRooms.indexOf(room.name.toLowerCase());
+
+            if(i >= 0){
+              this.knowRooms.splice(i,1);
+            }
+          }
         }
       });
   }
