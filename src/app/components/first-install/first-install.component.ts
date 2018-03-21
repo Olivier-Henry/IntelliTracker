@@ -38,6 +38,11 @@ export class FirstInstallComponent implements OnInit {
     return this.selectedRoom === undefined;
   }
 
+  additionalRowIsVisible(){
+    console.log( this.roomService.knowRooms.length);
+    return this.roomService.rooms &&  this.roomService.knowRooms.length > 0 && this.roomService.rooms.length % 2 === 0;
+  }
+
   getRoomIcon(): string{
       if(this.selectedRoom){
         return this.selectedRoom + '-logo';

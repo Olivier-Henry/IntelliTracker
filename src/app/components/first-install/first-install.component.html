@@ -30,7 +30,8 @@
           </mat-card-header>
           <mat-card-content>
             <p>
-              We found the {{roomService.rooms[i].name | titlecase }} application on your computer.<br>
+              We found the {{roomService.rooms[i].name | titlecase }} application on your computer.
+              <br>
             </p>
           </mat-card-content>
           <mat-card-actions align="end">
@@ -62,7 +63,7 @@
         </mat-card>
         <mat-card fxFlex="50%" *ngIf="!roomService.rooms[i + 1]" class="bottom-buttons">
           <mat-card-header>
-              <div mat-card-avatar [ngClass]="getRoomIcon()"></div>
+            <div mat-card-avatar [ngClass]="getRoomIcon()"></div>
             <mat-card-title>Select a room to add</mat-card-title>
             <mat-card-subtitle>
               <p>pick a room in list and click on add</p>
@@ -74,14 +75,38 @@
                 <mat-option value="{{roomName}}" *ngFor="let roomName of roomService.knowRooms">{{roomName}}</mat-option>
               </mat-select>
             </mat-form-field>
+          </mat-card-content>
+          <mat-card-actions align="end">
+            <button mat-raised-button color="primary" [disabled]="hasSelectedRoom()">
+              <mat-icon>add</mat-icon> add
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+    <div fxLayout *ngIf="additionalRowIsVisible()" fxLayoutGap="10px">
+      <mat-card fxFlex="50%" class="bottom-buttons">
+        <mat-card-header>
+          <div mat-card-avatar [ngClass]="getRoomIcon()"></div>
+          <mat-card-title>Select a room to add</mat-card-title>
+          <mat-card-subtitle>
+            <p>pick a room in list and click on add</p>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field fxFlex>
+            <mat-select [(value)]="selectedRoom" placeholder="Choose a room">
+              <mat-option value="{{roomName}}" *ngFor="let roomName of roomService.knowRooms">{{roomName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
         </mat-card-content>
         <mat-card-actions align="end">
           <button mat-raised-button color="primary" [disabled]="hasSelectedRoom()">
             <mat-icon>add</mat-icon> add
           </button>
         </mat-card-actions>
-        </mat-card>
-      </div>
+      </mat-card>
+      <mat-card fxFlex="50%"  class="invisible"></mat-card>
     </div>
   </div>
 </div>

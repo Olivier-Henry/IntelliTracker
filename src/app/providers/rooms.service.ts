@@ -7,7 +7,7 @@ export class RoomsService {
 
   private repository: Repository<Room>;
   public rooms: Array<Room>;
-  public knowRooms:Array<string> = ['winamax', 'pokerstars'];
+  public knowRooms:Array<string> = ['winamax', 'pokerstars', 'test'];
 
   constructor() {
     this.repository = getConnection().getRepository(Room);
