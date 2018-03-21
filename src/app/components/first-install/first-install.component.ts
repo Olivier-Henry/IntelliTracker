@@ -13,6 +13,8 @@ import { BankrollService } from '../../providers/bankroll.service';
 })
 export class FirstInstallComponent implements OnInit {
 
+  private selectedRoom: string;
+
   constructor(private roomService: RoomsService, 
                 public dialog:MatDialog, 
                 private userService:UsersService,
@@ -30,6 +32,17 @@ export class FirstInstallComponent implements OnInit {
           this.bankrollService.save(result);
         }
       });
+  }
+
+  hasSelectedRoom(): boolean{
+    return this.selectedRoom === undefined;
+  }
+
+  getRoomIcon(): string{
+      if(this.selectedRoom){
+        return this.selectedRoom + '-logo';
+      }
+      return 'no-room-logo';
   }
 
   ngOnInit() {
