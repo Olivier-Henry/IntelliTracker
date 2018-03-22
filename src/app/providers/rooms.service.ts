@@ -31,4 +31,9 @@ export class RoomsService {
       });
   }
 
+  public validateRoomFolder = (roomName: string, path: string): boolean => {
+
+    return false;
+  }
+
 }

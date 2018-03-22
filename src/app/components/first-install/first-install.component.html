@@ -101,7 +101,7 @@
           </mat-form-field>
         </mat-card-content>
         <mat-card-actions align="end">
-          <button mat-raised-button color="primary" [disabled]="hasSelectedRoom()">
+          <button mat-raised-button color="primary" [disabled]="hasSelectedRoom()" (click)="triggerFileInput()">
             <mat-icon>add</mat-icon> add
           </button>
         </mat-card-actions>
@@ -109,4 +109,5 @@
       <mat-card fxFlex="50%"  class="invisible"></mat-card>
     </div>
   </div>
+  <input #fileInput type="file" webkitdirectory class="hidden" (change)="setRoomFolder($event)"/>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { RoomsService } from '../../providers/rooms.service';
 import Room from '../../../entity/Room';
 import { MatDialog } from '@angular/material';
@@ -12,6 +12,8 @@ import { BankrollService } from '../../providers/bankroll.service';
   styleUrls: ['./first-install.component.scss'],
 })
 export class FirstInstallComponent implements OnInit {
+
+  @ViewChild('fileInput') fileInput: ElementRef;
 
   private selectedRoom: string;
 
@@ -39,7 +41,6 @@ export class FirstInstallComponent implements OnInit {
   }
 
   additionalRowIsVisible(){
-    console.log( this.roomService.knowRooms.length);
     return this.roomService.rooms &&  this.roomService.knowRooms.length > 0 && this.roomService.rooms.length % 2 === 0;
   }
 
@@ -48,6 +49,15 @@ export class FirstInstallComponent implements OnInit {
         return this.selectedRoom + '-logo';
       }
       return 'no-room-logo';
+  }
+
+  triggerFileInput(): void{
+    this.fileInput.nativeElement.click();
+  }
+
+  setRoomFolder(e): void{
+    let path = e.target.files[0].path;
+    console.log(path);
   }
 
   ngOnInit() {

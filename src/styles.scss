@@ -88,5 +88,9 @@
 .left-container{
   height: calc(100% - 64px);
 }
+
+.hidden{
+  display: none;
+}
 @import "~@angular/material/prebuilt-themes/purple-green.css";
 
