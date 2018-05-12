@@ -3,6 +3,7 @@ import { getConnection, Repository } from 'typeorm';
 import Room from '../../entity/Room';
 import * as os from 'os';
 import * as fs from 'fs';
+import * as path from 'path';
 import { patch } from 'webdriver-js-extender';
 
 @Injectable()
@@ -15,6 +16,7 @@ export class RoomsService {
   constructor() {
     this.repository = getConnection().getRepository(Room);
     this.get();
+    
   }
 
   private get = () => {
@@ -38,20 +40,35 @@ export class RoomsService {
 
   }
 
-  private validateRoomFolder = (roomName: string, path: string): boolean | Room => {
+  private validateRoomFolder = (roomName: string, roomPath: string): boolean | Room => {
     switch (roomName) {
       case 'pokerstars':
-        return this.isValidPokerstarsPath(path);
+        return this.isValidPokerstarsPath(roomPath);
       case 'winamax':
-        return this.isValidWinamaxPath(path);
+        return this.isValidWinamaxPath(roomPath);
       default:
         return false;
     }
   }
 
-  private isValidPokerstarsPath = (path: string): boolean | Room => {
-    
+  private isValidPokerstarsPath = (roomPath: string): boolean | Room => {
+    let pathArray: Array<string> = roomPath.split(path.sep);
+    let room: Room;
+    let rpath: string;
 
+    for (let i = pathArray.length - 1; i >= 0; i--) {
+     /*  if(pathArray[i] === 'HandHistory'){
+        rpath = pathArray.join(path.sep);
+        break;
+      } */
+      
+      if(pathArray[i] === 'PokerStars.FR'){
+        rpath = pathArray.join(path.sep);
+        break;
+      }
+
+      pathArray.pop();
+    }
 
     return false;
   }
