@@ -9,15 +9,15 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
-//angular angular material
-import { BrowserAnimationsModule } from  '@angular/platform-browser/animations';
+// angular angular material
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './material.module';
 
 
 // NG Translate
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { ElectronService } from './providers/electron.service';
 
 import { AppComponent } from './app.component';
@@ -36,7 +36,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-export function DatabaseConnectionFactory(databaseConnection: DatabaseConnection){
+export function DatabaseConnectionFactory(databaseConnection: DatabaseConnection) {
   return () => databaseConnection.connect();
 }
 
@@ -74,7 +74,7 @@ export function DatabaseConnectionFactory(databaseConnection: DatabaseConnection
       deps: [DatabaseConnection],
       multi: true
     },
-    ElectronService, 
+    ElectronService,
     PreferencesService,
     RoomsService,
     UsersService,

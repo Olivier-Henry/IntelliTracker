@@ -15,28 +15,28 @@ export class InitHeroDialogComponent implements OnInit {
   private bankrolls: Array<Bankroll> = [];
 
   constructor(public dialogRef: MatDialogRef<InitHeroDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private bankrollService:BankrollService) { }
+    @Inject(MAT_DIALOG_DATA) public data: any, private bankrollService: BankrollService) { }
 
   ngOnInit() {
     this.data.heroes.then((result) => {
       this.heroes = result;
 
-      for(let hero of this.heroes){
+      for (const hero of this.heroes) {
 
-        this.bankrollService.getByHero(hero).then(result=> {
-          if(result instanceof Bankroll){
-            this.bankrolls.push(result);
+        this.bankrollService.getByHero(hero).then(bankroll => {
+          if (bankroll instanceof Bankroll) {
+            this.bankrolls.push(bankroll);
             return;
           }
 
-          let bankroll = new Bankroll();
+          bankroll = new Bankroll();
           bankroll.user = hero;
           bankroll.date = new Date();
           this.bankrolls.push(bankroll);
-        
+
         });
 
-       
+
       }
 
     });

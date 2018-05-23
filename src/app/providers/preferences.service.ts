@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { getConnection, Repository } from 'typeorm';
 import AppPreferences from '../../entity/AppPreferences';
-import {CanActivate, Router, RouterStateSnapshot, ActivatedRouteSnapshot} from '@angular/router';
+import { CanActivate, Router, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 import { setTimeout } from 'timers';
 
 
@@ -11,8 +11,8 @@ export class PreferencesService implements CanActivate {
   public preferences: AppPreferences;
   private repository: Repository<AppPreferences>;
 
-  constructor(private router:Router) {
-       this.repository = getConnection().getRepository(AppPreferences);
+  constructor(private router: Router) {
+    this.repository = getConnection().getRepository(AppPreferences);
   }
 
   public get = (): Promise<AppPreferences> => {
@@ -27,16 +27,16 @@ export class PreferencesService implements CanActivate {
           this.preferences = response;
           resolve(!response.firstInstall);
           this.router.navigate(['first-install']);
-        }else{
+        } else {
           resolve(true);
         }
       })
-      .catch(error => {
-        console.error(error);
-      })
-        
+        .catch(error => {
+          console.error(error);
+        })
+
     });
-   
+
   }
 
 }
