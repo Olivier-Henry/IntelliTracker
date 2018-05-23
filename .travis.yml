@@ -1,4 +1,4 @@
-os: win32
+os: osx
 language: node_js
 node_js:
   - "7"
