@@ -16,7 +16,7 @@ export class BankrollService {
   async getByHero(user: User) {
     const b = await this.repository.findOne({
       where: { user: user },
-      order: { date: "DESC" }
+      order: { date: 'DESC' }
     });
 
     if (b instanceof Bankroll) {
@@ -28,7 +28,7 @@ export class BankrollService {
 
   async save(bankrolls: Array<Bankroll>) {
 
-    for (let b of bankrolls) {
+    for (const b of bankrolls) {
       b.amount = this.toCentUnit(b.amount);
       console.log(b.amount);
     }

@@ -17,51 +17,51 @@ export class FirstInstallComponent implements OnInit {
 
   private selectedRoom: string;
 
-  constructor(private roomService: RoomsService, 
-                public dialog:MatDialog, 
-                private userService:UsersService,
-                private bankrollService: BankrollService) {}
+  constructor(private roomService: RoomsService,
+    public dialog: MatDialog,
+    private userService: UsersService,
+    private bankrollService: BankrollService) { }
 
-  openDialog(room: Room): void{
-      let dialogRef = this.dialog.open(InitHeroDialogComponent,{
-        data: {
-          heroes: this.userService.getHeroesByRoom(room) 
-        }
-      });
+  openDialog(room: Room): void {
+    const dialogRef = this.dialog.open(InitHeroDialogComponent, {
+      data: {
+        heroes: this.userService.getHeroesByRoom(room)
+      }
+    });
 
-      dialogRef.afterClosed().subscribe(result =>{
-        if(typeof result !== 'undefined'){
-          this.bankrollService.save(result);
-        }
-      });
+    dialogRef.afterClosed().subscribe(result => {
+      if (typeof result !== 'undefined') {
+        this.bankrollService.save(result);
+      }
+    });
   }
 
-  hasSelectedRoom(): boolean{
+  hasSelectedRoom(): boolean {
     return this.selectedRoom === undefined;
   }
 
-  additionalRowIsVisible(){
-    return this.roomService.rooms &&  this.roomService.knowRooms.length > 0 && this.roomService.rooms.length % 2 === 0;
+  additionalRowIsVisible() {
+    return this.roomService.rooms && this.roomService.knowRooms.length > 0 && this.roomService.rooms.length % 2 === 0;
   }
 
-  getRoomIcon(): string{
-      if(this.selectedRoom){
-        return this.selectedRoom + '-logo';
-      }
-      return 'no-room-logo';
+  getRoomIcon(): string {
+    if (this.selectedRoom) {
+      return this.selectedRoom + '-logo';
+    }
+    return 'no-room-logo';
   }
 
-  triggerFileInput(): void{
+  triggerFileInput(): void {
     this.fileInput.nativeElement.click();
   }
 
-  setRoomFolder(e): void{
-    let path = e.target.files[0].path;
+  setRoomFolder(e): void {
+    const path = e.target.files[0].path;
     console.log(path);
   }
 
   ngOnInit() {
-   
+
   }
 
 }

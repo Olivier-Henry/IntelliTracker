@@ -4,7 +4,6 @@ import Room from '../../entity/Room';
 import * as os from 'os';
 import * as fs from 'fs';
 import * as path from 'path';
-import { patch } from 'webdriver-js-extender';
 
 @Injectable()
 export class RoomsService {
@@ -16,7 +15,7 @@ export class RoomsService {
   constructor() {
     this.repository = getConnection().getRepository(Room);
     this.get();
-    
+
   }
 
   private get = () => {
@@ -25,8 +24,8 @@ export class RoomsService {
         if (response.length) {
           this.rooms = response;
 
-          for (let room of this.rooms) {
-            let i = this.knowRooms.indexOf(room.name.toLowerCase());
+          for (const room of this.rooms) {
+            const i = this.knowRooms.indexOf(room.name.toLowerCase());
 
             if (i >= 0) {
               this.knowRooms.splice(i, 1);
@@ -36,33 +35,29 @@ export class RoomsService {
       });
   }
 
-  private addRoom = (roomName: string, path: string) => {
-
-  }
 
   private validateRoomFolder = (roomName: string, roomPath: string): boolean | Room => {
     switch (roomName) {
       case 'pokerstars':
         return this.isValidPokerstarsPath(roomPath);
       case 'winamax':
-        return this.isValidWinamaxPath(roomPath);
+      //  return this.isValidWinamaxPath(roomPath);
       default:
         return false;
     }
   }
 
   private isValidPokerstarsPath = (roomPath: string): boolean | Room => {
-    let pathArray: Array<string> = roomPath.split(path.sep);
-    let room: Room;
+    const pathArray: Array<string> = roomPath.split(path.sep);
     let rpath: string;
 
     for (let i = pathArray.length - 1; i >= 0; i--) {
-     /*  if(pathArray[i] === 'HandHistory'){
-        rpath = pathArray.join(path.sep);
-        break;
-      } */
-      
-      if(pathArray[i] === 'PokerStars.FR'){
+      /*  if(pathArray[i] === 'HandHistory'){
+         rpath = pathArray.join(path.sep);
+         break;
+       } */
+
+      if (pathArray[i] === 'PokerStars.FR') {
         rpath = pathArray.join(path.sep);
         break;
       }
@@ -72,11 +67,6 @@ export class RoomsService {
 
     return false;
   }
-  private isValidWinamaxPath = (path: string): boolean | Room => {
-
-    return false;
-  }
-
 
 
 }

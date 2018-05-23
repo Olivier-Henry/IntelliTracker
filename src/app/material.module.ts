@@ -1,10 +1,10 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { 
+import {
   MatButtonModule,
-  MatToolbarModule, 
-  MatGridListModule, 
-  MatCardModule, 
+  MatToolbarModule,
+  MatGridListModule,
+  MatCardModule,
   MatIconModule,
   MatChipsModule,
   MatDialogModule,
