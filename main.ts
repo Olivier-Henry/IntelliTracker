@@ -12,7 +12,7 @@ serve = args.some(val => val === '--serve');
 
 if (serve) {
   require('electron-reload')(__dirname, {
-    electron: require(`${__dirname}/node_modules/electron`)
+    electron: require(`${__dirname}${path.sep}node_modules${path.sep}electron`)
   });
 }
 

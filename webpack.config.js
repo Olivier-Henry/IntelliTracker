@@ -262,7 +262,8 @@ module.exports = {
     "util": "require('util')",
     "zlib": "require('zlib')",
     "reflect-metadata": "require('reflect-metadata')",
-    "typeorm": "require('typeorm')"
+    "typeorm": "require('typeorm')",
+    "sqlite3": "require('sqlite3')"
   },
   "resolve": {
     "extensions": [
