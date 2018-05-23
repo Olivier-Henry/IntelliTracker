@@ -1,12 +1,12 @@
-import {Entity, Column, PrimaryGeneratedColumn, OneToMany} from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity()
-export default class AppPreferences{
+export default class AppPreferences {
 
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({type: 'boolean'})
+    @Column({ type: 'boolean' })
     firstInstall: boolean;
-  
+
 }

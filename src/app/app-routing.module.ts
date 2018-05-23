@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PreferencesService } from './providers/preferences.service';
 
 const routes: Routes = [
-     {
+    {
         path: 'first-install',
         component: FirstInstallComponent,
     },
@@ -15,14 +15,14 @@ const routes: Routes = [
         component: HomeComponent,
         canActivate: [PreferencesService],
     }
-  
-    
+
+
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, {useHash: true, enableTracing: false})],
+    imports: [RouterModule.forRoot(routes, { useHash: true, enableTracing: false })],
     exports: [RouterModule],
-    providers : [
+    providers: [
         PreferencesService
     ]
 })
