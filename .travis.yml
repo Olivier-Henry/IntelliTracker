@@ -9,6 +9,3 @@ cache:
     - ./node_modules
 script:
   - npm run build
-  - export CHROME_BIN=chromium-browser
-  - npm run test -- --single-run --no-progress --browser=ChromeNosandbox
-  - npm run e2e -- --no-progress --config=protractor-ci.conf.js
