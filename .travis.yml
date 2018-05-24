@@ -10,5 +10,5 @@ cache:
 script:
   - npm run build
   - export CHROME_BIN=chromium-browser
-  - xvfb-run -a npm run test -- --single-run --no-progress --browser=ChromeNosandbox
-  - xvfb-run -a npm run e2e -- --no-progress --config=protractor-ci.conf.js
+  - npm run test -- --single-run --no-progress --browser=ChromeNosandbox
+  - npm run e2e -- --no-progress --config=protractor-ci.conf.js
