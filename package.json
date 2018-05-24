@@ -63,7 +63,6 @@
     "rxjs": "5.5.2",
     "sqlite3": "^4.0.0",
     "typeorm": "^0.1.12",
-    "windows-build-tools": "^2.3.0",
     "zone.js": "0.8.17"
   },
   "devDependencies": {
