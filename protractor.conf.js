@@ -15,7 +15,7 @@ exports.config = {
     'browserName': 'chrome',
     chromeOptions: {
       binary: electron,
-      args: ['--test-type=webdriver', 'app=dist/main.js']
+      args: ['--test-type=webdriver', '--no-sandbox', 'app=dist/main.js']
     }
   },
   directConnect: true,
