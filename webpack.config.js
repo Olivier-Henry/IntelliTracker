@@ -238,6 +238,7 @@ function getPlugins() {
 }
 
 module.exports = {
+  "target": "electron-renderer",
   "devtool": "source-map",
   "externals": {
     "electron": "require('electron')",
@@ -263,7 +264,8 @@ module.exports = {
     "zlib": "require('zlib')",
     "reflect-metadata": "require('reflect-metadata')",
     "typeorm": "require('typeorm')",
-    "sqlite3": "require('sqlite3')"
+    "sqlite3": "require('sqlite3')",
+    "tls": "require('tls')"
   },
   "resolve": {
     "extensions": [
