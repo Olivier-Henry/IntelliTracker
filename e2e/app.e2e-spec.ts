@@ -8,6 +8,7 @@ describe('First install', () => {
     page = new AngularElectronPage();
   });
 
+  browser.sleep(10000);
   /* it('should display message saying App works !', () => {
     expect(element(by.css('app-home h1')).getText()).toMatch('App works !');
   }); */
