@@ -2,8 +2,7 @@
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
 const { SpecReporter } = require('jasmine-spec-reporter');
-const  os  = require('os');
-const ext = os.platform() === 'win32' ? '.exe' : '';
+const electron = require('electron');
 
 exports.config = {
   allScriptsTimeout: 25000,
@@ -15,7 +14,7 @@ exports.config = {
   capabilities: {
     'browserName': 'chrome',
     chromeOptions: {
-      binary: './node_modules/electron/dist/electron' + ext,
+      binary: electron,
       args: ['--test-type=webdriver', 'app=dist/main.js']
     }
   },
